@@ -3,4 +3,6 @@ layout: page
 title: About
 permalink: /about/
 ---
-I am an open source C++ developer. I contribute to KDE software (usually the Frameworks and some applications).
+C++ developer, contributing to KDE software, mainly the Frameworks and some applications (e.g. Konsole, Kate, Dolphin).
+
+That's it, go find something more useful to do. :)

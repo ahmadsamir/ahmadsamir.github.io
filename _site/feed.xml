@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-10-03T22:02:29+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Open Source C++ developer’s journal</title><author><name>Ahmad Samir</name></author><entry><title type="html">Shell script to open all them all (files)</title><link href="http://localhost:4000/2020/09/25/open-files-git-commit.html" rel="alternate" type="text/html" title="Shell script to open all them all (files)" /><published>2020-09-25T00:00:00+02:00</published><updated>2020-09-25T00:00:00+02:00</updated><id>http://localhost:4000/2020/09/25/open-files-git-commit</id><content type="html" xml:base="http://localhost:4000/2020/09/25/open-files-git-commit.html">&lt;html&gt;
-&lt;head&gt;
-&lt;link href=&quot;/assets/main.css&quot; rel=&quot;stylesheet&quot; /&gt;
-&lt;/head&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-10-08T21:05:15+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Open Source C++ developer’s journal</title><subtitle>C++ developer's journal</subtitle><author><name>Ahmad Samir</name></author><entry><title type="html">Shell Script to Open Files related a git commit</title><link href="http://localhost:4000/2020/09/25/open-files-git-commit.html" rel="alternate" type="text/html" title="Shell Script to Open Files related a git commit" /><published>2020-09-25T00:00:00+02:00</published><updated>2020-09-25T00:00:00+02:00</updated><id>http://localhost:4000/2020/09/25/open-files-git-commit</id><content type="html" xml:base="http://localhost:4000/2020/09/25/open-files-git-commit.html">&lt;html&gt;
 &lt;body&gt;
   &lt;p&gt;This is a small shell script that I use to open all files related to a commit in git; I find it quite useful when I want to resume working on a local branch.&lt;/p&gt;
+
+  &lt;p&gt;Side note: I don't use an IDE (I haven't found one that I can live with, although I use Qt Creator from time to time, mainly for its code parsing capabilities (the &quot;Follow symbol under cursor&quot; is a must when reading/exploring code)). However for my day-to-day usage I like using &lt;a href=&quot;https://kate-editor.org/&quot;&gt;Kate&lt;/a&gt;, familiarity is important, I started coding using Kate and Konsole, I am sticking with them for the time being.&lt;/p&gt;
+
+  &lt;p&gt;Anyway, let's get to the script.&lt;/p&gt;
 
   &lt;div&gt;
     &lt;pre class=&quot;code&quot;&gt;
@@ -24,21 +25,23 @@ fi
     &lt;/pre&gt;
   &lt;/div&gt;
 
-  &lt;p&gt;&lt;code&gt;git rev-parse --show-toplevel&lt;/code&gt;: returns the absolute path to the topelevel git repo dir&lt;/p&gt;
+  &lt;p&gt;&lt;code&gt;git rev-parse --show-toplevel&lt;/code&gt;: returns the absolute path to the topelevel git repo directory&lt;/p&gt;
   &lt;p&gt;&lt;code&gt;git diff --name-only&lt;/code&gt;: returns the list of the files that are changed but not commited yet&lt;/p&gt;
   &lt;p&gt;&lt;code&gt;git diff HEAD^1 --name-only&lt;/code&gt;: returns the list of files that were changed (committed or not) since the commit before last in the repo&lt;/p&gt;
-  &lt;p&gt;&lt;code&gt;perl -p -e 's!.+!'$gitPrefix'/$&amp;!; s!.+(png|jpeg)$!!'&lt;/code&gt;: this prepends $gitPrefix to all the relative file paths that the from git diff commands; also it filters out all png/jpeg files (I don't want to edit images with a text editor... it doesn't work)&lt;/p&gt;
+  &lt;p&gt;&lt;code&gt;perl -p -e 's!.+!'$gitPrefix'/$&amp;!; s!.+(png|jpeg)$!!'&lt;/code&gt;: since the git difff commands above return relative paths, I need to prepend $gitPrefix (the output of the &lt;code&gt;git rev-parse --show-toplevel&lt;/code&gt; command) to all those relative paths, that's what this perl command does; also it filters out all png/jpeg files (I don't want to edit images with a text editor... it doesn't work)&lt;/p&gt;
 
   &lt;p&gt;As you can see, I write hacky bash scripts, I am sure there are ways to make it more elegant, but it works, so.&lt;/p&gt;
 
   &lt;p&gt;I have two use cases here:
-    &lt;li&gt;I started working in a branch, and haven't committed anything yet, so to reopen all the files I've changed in kate, I use the script without any arguments&lt;/li&gt;
-    &lt;li&gt;I started working on a branch, committed some stuff, and also have some work-in-progress that hasn't been committed yet, if I want to open all files (those that have been committed in the last commit and those that are still not committed), I call the script with &lt;i&gt;any&lt;/i&gt; argument e.g. &lt;code&gt;all&lt;/code&gt;.&lt;/li&gt;
+    &lt;li class=&quot;li-indent&quot;&gt;I started working in a branch, and haven't committed anything yet, so to reopen all the files I've changed in kate, I use the script without any arguments&lt;/li&gt;
+    &lt;li class=&quot;li-indent&quot;&gt;I started working on a branch, committed some stuff, then worked some more but haven't committed that work-in-progress yet, if I want to open all files (those that have been committed in the last commit and those that are still not committed), I call the script with &lt;i&gt;any&lt;/i&gt; argument e.g. &lt;code&gt;all&lt;/code&gt;.&lt;/li&gt;
   &lt;/p&gt;
 
-  &lt;p&gt;Bonus point, if you save the script as e.g. &lt;code&gt;git-open-files&lt;/code&gt; somewhere in your PATH, you can call the script directly (after making it executable) from terminal or you can use it as a git command &lt;code&gt;git open-files&lt;/code&gt;.&lt;/p&gt;
+  &lt;p&gt;Bonus point, if you save the script as e.g. &lt;code&gt;git-open-files&lt;/code&gt; somewhere in your PATH, you can call the script directly (after making it executable) from terminal or you can use it as a git command, i.e. &lt;code&gt;git open-files&lt;/code&gt; should work.&lt;/p&gt;
 
   &lt;p&gt;Happy hacking!&lt;/p&gt;
+
+  &lt;p&gt;Credits: I had done some online research to get most of those commands (I find it easier to search for a &quot;concept&quot;, the after actually finding it, then read the relevant sections of the man pages; sometimes (well, usually) someone, somewhere, had already asked the same question :)), so thanks to all those online resources; e.g. I definitely recall finding the &lt;code&gt;git rev-parse --show-toplevel&lt;/code&gt; command in a stack{overflow,extachage} thread.&lt;/p&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;</content><author><name>Ahmad Samir</name></author><summary type="html">This is a small shell script that I use to open all files related to a commit in git; I find it quite useful when I want to resume working on a local branch.</summary></entry></feed>

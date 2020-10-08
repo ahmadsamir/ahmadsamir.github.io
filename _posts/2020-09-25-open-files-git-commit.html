@@ -1,13 +1,14 @@
 ---
 layout: post
-title: Shell script to open all them all (files)
+title: Shell Script to Open Files related a git commit
 ---
 <html>
-<head>
-<link href="/assets/main.css" rel="stylesheet" />
-</head>
 <body>
   <p>This is a small shell script that I use to open all files related to a commit in git; I find it quite useful when I want to resume working on a local branch.</p>
+
+  <p>This is useful if you're not using an IDE or you are working on multiple changes and switch between them.</p>
+
+  <p>Anyway, let's get to the script.</p>
 
   <div>
     <pre class="code">
@@ -28,21 +29,23 @@ fi
     </pre>
   </div>
 
-  <p><code>git rev-parse --show-toplevel</code>: returns the absolute path to the topelevel git repo dir</p>
-  <p><code>git diff --name-only</code>: returns the list of the files that are changed but not commited yet</p>
+  <p><code>git rev-parse --show-toplevel</code>: returns the absolute path to the top-level git repo directory</p>
+  <p><code>git diff --name-only</code>: returns the list of the files that are changed but not committed yet</p>
   <p><code>git diff HEAD^1 --name-only</code>: returns the list of files that were changed (committed or not) since the commit before last in the repo</p>
-  <p><code>perl -p -e 's!.+!'$gitPrefix'/$&!; s!.+(png|jpeg)$!!'</code>: this prepends $gitPrefix to all the relative file paths that the from git diff commands; also it filters out all png/jpeg files (I don't want to edit images with a text editor... it doesn't work)</p>
+  <p><code>perl -p -e 's!.+!'$gitPrefix'/$&!; s!.+(png|jpeg)$!!'</code>: since the git diff commands above return relative paths, I need to prepend $gitPrefix (the output of the <code>git rev-parse --show-toplevel</code> command) to all those relative paths, that's what this perl command does; also it filters out all png/jpeg files (I don't want to edit images with a text editor... it doesn't work)</p>
 
   <p>As you can see, I write hacky bash scripts, I am sure there are ways to make it more elegant, but it works, so.</p>
 
   <p>I have two use cases here:
-    <li>I started working in a branch, and haven't committed anything yet, so to reopen all the files I've changed in kate, I use the script without any arguments</li>
-    <li>I started working on a branch, committed some stuff, and also have some work-in-progress that hasn't been committed yet, if I want to open all files (those that have been committed in the last commit and those that are still not committed), I call the script with <i>any</i> argument e.g. <code>all</code>.</li>
+    <li class="li-indent">I started working in a branch, and haven't committed anything yet, so to reopen all the files I've changed in Kate, I use the script without any arguments</li>
+    <li class="li-indent">I started working on a branch, committed some stuff, then worked some more but haven't committed that work-in-progress yet, if I want to open all files (those that have been committed in the last commit and those that are still not committed), I call the script with <i>any</i> argument e.g. <code>all</code>.</li>
   </p>
 
-  <p>Bonus point, if you save the script as e.g. <code>git-open-files</code> somewhere in your PATH, you can call the script directly (after making it executable) from terminal or you can use it as a git command <code>git open-files</code>.</p>
+  <p>Bonus point, if you save the script as e.g. <code>git-open-files</code> somewhere in your PATH, you can call the script directly (after making it executable) from terminal or you can use it as a git command, i.e. <code>git open-files</code> should work.</p>
 
   <p>Happy hacking!</p>
+
+  <p>Credits: I had done some online research to get most of those commands (I find it easier to search for a "concept", the after actually finding it, then read the relevant sections of the man pages; sometimes (well, usually) someone, somewhere, had already asked the same question :)), so thanks to all those online resources; e.g. I definitely recall finding the <code>git rev-parse --show-toplevel</code> command in a stack{overflow,exchange} thread.</p>
 
 </body>
 </html>
