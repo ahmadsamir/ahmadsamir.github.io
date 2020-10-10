@@ -29,7 +29,7 @@
 <body>
   <p>This is a small shell script that I use to open all files related to a commit in git; I find it quite useful when I want to resume working on a local branch.</p>
 
-  <p>Side note: I don't use an IDE (I haven't found one that I can live with, although I use Qt Creator from time to time, mainly for its code parsing capabilities (the "Follow symbol under cursor" is a must when reading/exploring code)). However for my day-to-day usage I like using <a href="https://kate-editor.org/">Kate</a>, familiarity is important, I started coding using Kate and Konsole, I am sticking with them for the time being.</p>
+  <p>This is useful if you're not using an IDE or you are working on multiple changes and switch between them.</p>
 
   <p>Anyway, let's get to the script.</p>
 
@@ -52,15 +52,15 @@ fi
     </pre>
   </div>
 
-  <p><code>git rev-parse --show-toplevel</code>: returns the absolute path to the topelevel git repo directory</p>
-  <p><code>git diff --name-only</code>: returns the list of the files that are changed but not commited yet</p>
+  <p><code>git rev-parse --show-toplevel</code>: returns the absolute path to the top-level git repo directory</p>
+  <p><code>git diff --name-only</code>: returns the list of the files that are changed but not committed yet</p>
   <p><code>git diff HEAD^1 --name-only</code>: returns the list of files that were changed (committed or not) since the commit before last in the repo</p>
-  <p><code>perl -p -e 's!.+!'$gitPrefix'/$&!; s!.+(png|jpeg)$!!'</code>: since the git difff commands above return relative paths, I need to prepend $gitPrefix (the output of the <code>git rev-parse --show-toplevel</code> command) to all those relative paths, that's what this perl command does; also it filters out all png/jpeg files (I don't want to edit images with a text editor... it doesn't work)</p>
+  <p><code>perl -p -e 's!.+!'$gitPrefix'/$&!; s!.+(png|jpeg)$!!'</code>: since the git diff commands above return relative paths, I need to prepend $gitPrefix (the output of the <code>git rev-parse --show-toplevel</code> command) to all those relative paths, that's what this perl command does; also it filters out all png/jpeg files (I don't want to edit images with a text editor... it doesn't work)</p>
 
   <p>As you can see, I write hacky bash scripts, I am sure there are ways to make it more elegant, but it works, so.</p>
 
   <p>I have two use cases here:
-    <li class="li-indent">I started working in a branch, and haven't committed anything yet, so to reopen all the files I've changed in kate, I use the script without any arguments</li>
+    <li class="li-indent">I started working in a branch, and haven't committed anything yet, so to reopen all the files I've changed in Kate, I use the script without any arguments</li>
     <li class="li-indent">I started working on a branch, committed some stuff, then worked some more but haven't committed that work-in-progress yet, if I want to open all files (those that have been committed in the last commit and those that are still not committed), I call the script with <i>any</i> argument e.g. <code>all</code>.</li>
   </p>
 
@@ -68,7 +68,7 @@ fi
 
   <p>Happy hacking!</p>
 
-  <p>Credits: I had done some online research to get most of those commands (I find it easier to search for a "concept", the after actually finding it, then read the relevant sections of the man pages; sometimes (well, usually) someone, somewhere, had already asked the same question :)), so thanks to all those online resources; e.g. I definitely recall finding the <code>git rev-parse --show-toplevel</code> command in a stack{overflow,extachage} thread.</p>
+  <p>Credits: I had done some online research to get most of those commands (I find it easier to search for a "concept", the after actually finding it, then read the relevant sections of the man pages; sometimes (well, usually) someone, somewhere, had already asked the same question :)), so thanks to all those online resources; e.g. I definitely recall finding the <code>git rev-parse --show-toplevel</code> command in a stack{overflow,exchange} thread.</p>
 
 </body>
 </html>
@@ -81,7 +81,7 @@ fi
           <p>
               <span style="float: left;">Ahmad Samir
               <a class="u-email" href="mailto:a.samirh78@gmail.com">a.samirh78@gmail.com</a></span>
-              <span style="float: right;"><a href="/feed.xml">Subscribe (RSS)</a></span></p>
+              <span style="float: right;"><a href="/feed.xml">Subscribe</a></span></p>
 </footer>
 <div style="text-align: center; padding-bottom: 100px;">Powered by <a herf="https://jekyllrb.com/">Jekyll</a>, using the <a href="https://github.com/jekyll/minima">Minima</a> theme with some tweaks</div>
   </body>
