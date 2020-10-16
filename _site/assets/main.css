@@ -1,3 +1,11 @@
+.note {
+/*     background-color: lightgrey; */
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    border: 3px skyblue solid;
+}
+
 .indent {
     text-indent: 50px;
 }
@@ -6,19 +14,49 @@
     margin-left: 50px;
 }
 
-.li-indent {
-    margin-left: 50px;
-    list-style: square;
-    margin-top: 0px;
+.sub-indent {
+    margin-left: 30px;
 }
 
+ul {
+    margin-left: 0px;
+}
+
+li, .li-indent {
+    margin-left: 0px;
+    list-style: square;
+/*     margin-top: 0px; */
+}
+
+/** Lists */
+ul, ol { margin-left: 0px; padding-left: 10px; }
+
+
+
+/** Code formatting */
+pre, code { /*font-size: 15px;*/ border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; }
+
+
+code {
+/*     padding: 1px 5px; */
+}
+
+/* pre { padding: 8px 12px; overflow-x: auto; } */
+
+/* pre > code { border: 0; padding-right: 0; padding-left: 0; } */
+
 .code {
-    background-color: #001a21;
-    color: white;
-    font-family: Anonymous Pro, Monospace;
+/*    background-color: #001a21 !important;
+    color: white;*/
+    font-family: Monospace;
     border-radius: 5px;
-    padding: 20px;
+    padding: 10px;
     white-space: pre-wrap;
+}
+
+pre.indented {
+    margin-left: 30px;
+    margin-top: 0px;
 }
 
 .code_comment {
@@ -38,8 +76,9 @@
 }
 
 .post-date {
-    font-family: Anonymous Pro, Ubuntu Mono, Monospace;
-    color: darkblue;
+    font-family: Serif;
+    color: darkgrey !important;
+
 }
 
 /** Basic styling */
@@ -69,10 +108,6 @@ figure > img { display: block; }
 
 figcaption { font-size: 14px; }
 
-/** Lists */
-ul, ol { margin-left: 30px; }
-
-li > ul, li > ol { margin-bottom: 0; }
 
 /** Headings */
 h1, h2, h3, h4, h5, h6 {
@@ -97,16 +132,7 @@ blockquote { color: #828282; border-left: 4px solid #e8e8e8; padding-left: 15px;
 
 blockquote > :last-child { margin-bottom: 0; }
 
-/** Code formatting */
-pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; }
 
-code {
-    padding: 1px 5px;
-}
-
-pre { padding: 8px 12px; overflow-x: auto; }
-
-pre > code { border: 0; padding-right: 0; padding-left: 0; }
 
 /** Wrapper */
 .wrapper { max-width: -webkit-calc(800px - (30px * 2)); max-width: calc(800px - (30px * 2)); margin-right: auto; margin-left: auto; padding-right: 30px; padding-left: 30px; }
