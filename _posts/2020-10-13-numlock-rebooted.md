@@ -79,7 +79,7 @@ replace *X* with the device number you used previously. If this doesn't work, re
 systemd-hwdb update
 udevadm trigger /dev/input/eventX
 </pre>
-or remove/reinsert the usb cable/receiver from the machine.
+if the last command above doesn't "apply" the changes remove/reinsert the usb cable/receiver from the machine.
 
 * * *
 
