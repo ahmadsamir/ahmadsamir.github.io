@@ -74,10 +74,11 @@ replace *X* with the device number you used previously. If this doesn't work, re
 * Now try the Numlock key, pressing it should be the same as pressing PageUp.
 
 * To revert this change, simply remove the `foo.hwdb` file and:
-<code class="code">
+
+<pre class="code">
 systemd-hwdb update
 udevadm trigger /dev/input/eventX
-</code>
+</pre>
 or remove/reinsert the usb cable/receiver from the machine.
 
 * * *
