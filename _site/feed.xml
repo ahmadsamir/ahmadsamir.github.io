@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-20T17:15:50+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Open Source C++ developer’s journal</title><subtitle>C++ developer's journal</subtitle><author><name>Ahmad Samir</name></author><entry><title type="html">If a workaround “works” for a long time, is it still a workaround?</title><link href="http://localhost:4000/2021/03/20/old-workaround.html" rel="alternate" type="text/html" title="If a workaround “works” for a long time, is it still a workaround?" /><published>2021-03-20T00:00:00+02:00</published><updated>2021-03-20T00:00:00+02:00</updated><id>http://localhost:4000/2021/03/20/old-workaround</id><content type="html" xml:base="http://localhost:4000/2021/03/20/old-workaround.html">&lt;p&gt;I remember back during the KDE3 to KDE4 transition, one feature was broken (or removed then brought back? it’s been so long I don’t recall exactly), and that is, double clicking the window menu button in the title bar (usually that button is the icon of the application to which that window belongs) would close the window. I was accustomed to using that functionality, both when I used Windows and after I switched to Linux, and it was a bit annoying to see that it suddenly didn’t work any more…&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-30T13:45:25+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Open Source C++ developer’s journal</title><subtitle>C++ developer's journal</subtitle><author><name>Ahmad Samir</name></author><entry><title type="html">-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?</title><link href="http://localhost:4000/2021/03/29/disable-deprecated-before-and-at.html" rel="alternate" type="text/html" title="-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?" /><published>2021-03-29T00:00:00+02:00</published><updated>2021-03-29T00:00:00+02:00</updated><id>http://localhost:4000/2021/03/29/disable-deprecated-before-and-at</id><content type="html" xml:base="http://localhost:4000/2021/03/29/disable-deprecated-before-and-at.html">&lt;p&gt;-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00&lt;/p&gt;
+
+&lt;pre class=&quot;code&quot;&gt;
+        0x054F00
+0x05    0x4F   0x00
+&lt;/pre&gt;
+
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;
+$ printf '%d %d %d\n' 0x05 0x4F 0x00
+5 79 0
+&lt;/pre&gt;
+
+&lt;p&gt;Using &lt;code&gt;std::cout&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;
+std::cout &amp;lt;&amp;lt; std::dec &amp;lt;&amp;lt; 0x05 &amp;lt;&amp;lt; &quot; &quot;
+                      &amp;lt;&amp;lt; 0x4F &amp;lt;&amp;lt; &quot; &quot;
+                      &amp;lt;&amp;lt; 0x00 &amp;lt;&amp;lt; std::endl;
+
+Outputs:
+5 79 0
+&lt;/pre&gt;
+
+&lt;p&gt;And:&lt;/p&gt;
+&lt;pre class=&quot;code&quot;&gt;
+std::cout &amp;lt;&amp;lt; std::hex &amp;lt;&amp;lt; QT_VERSION_CHECK(5, 79, 0) &amp;lt;&amp;lt;  std::endl;
+
+Outputs:
+54f00
+&lt;/pre&gt;
+
+&lt;pre class=&quot;code&quot;&gt;
+                   54f00
+Hexacdecimal: 54    4f   00
+Decimal:      5     79   0
+&lt;/pre&gt;
+
+&lt;p&gt;I hope you understand now.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;b&gt;Side-note:&lt;/b&gt; I would like to thank Ilya Bizyaev, who took the time to file an issue which resulted in fixing the config files of my blog, so that links created to my blog on https://planet.kde.org actually work.&lt;/p&gt;
+
+&lt;p&gt;This is very good because it actually has two results, a) I fixed the config and b) it gave me proof that someone actually read a post from this blog.&lt;/p&gt;
+
+&lt;p&gt;My main goal when I created this blog was to share info, so even if no one reads a new post right after I create one, it could help someone doing an online search some years from now (including myself, since I also think of this blog as my little personal wiki, something like this great all-things-about-BASH wiki https://mywiki.wooledge.org , but much smaller (and not as useful, yet…. ?) :)&lt;/p&gt;</content><author><name>Ahmad Samir</name></author><summary type="html">-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00</summary></entry><entry><title type="html">If a workaround “works” for a long time, is it still a workaround?</title><link href="http://localhost:4000/2021/03/20/old-workaround.html" rel="alternate" type="text/html" title="If a workaround “works” for a long time, is it still a workaround?" /><published>2021-03-20T00:00:00+02:00</published><updated>2021-03-20T00:00:00+02:00</updated><id>http://localhost:4000/2021/03/20/old-workaround</id><content type="html" xml:base="http://localhost:4000/2021/03/20/old-workaround.html">&lt;p&gt;I remember back during the KDE3 to KDE4 transition, one feature was broken (or removed then brought back? it’s been so long I don’t recall exactly), and that is, double clicking the window menu button in the title bar (usually that button is the icon of the application to which that window belongs) would close the window. I was accustomed to using that functionality, both when I used Windows and after I switched to Linux, and it was a bit annoying to see that it suddenly didn’t work any more…&lt;/p&gt;
 
 &lt;p&gt;So, to workaround that issue, I ended up moving the close button (yes, you can edit those in the KDE desktop (now Plasma) settings, from the “Window Decorations” KCM) from the far right, where it resides by default, to the far left on the title bar. And I’ve been using that ever since.&lt;/p&gt;
 
