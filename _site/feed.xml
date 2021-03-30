@@ -1,80 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-30T13:45:25+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Open Source C++ developer’s journal</title><subtitle>C++ developer's journal</subtitle><author><name>Ahmad Samir</name></author><entry><title type="html">-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?</title><link href="http://localhost:4000/2021/03/29/disable-deprecated-before-and-at.html" rel="alternate" type="text/html" title="-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?" /><published>2021-03-29T00:00:00+02:00</published><updated>2021-03-29T00:00:00+02:00</updated><id>http://localhost:4000/2021/03/29/disable-deprecated-before-and-at</id><content type="html" xml:base="http://localhost:4000/2021/03/29/disable-deprecated-before-and-at.html">&lt;p&gt;-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00&lt;/p&gt;
-
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-30T14:08:21+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Open Source C++ developer’s journal</title><subtitle>C++ developer's journal</subtitle><author><name>Ahmad Samir</name></author><entry><title type="html">-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?</title><link href="http://localhost:4000/2021/03/29/disable-deprecated-before-and-at.html" rel="alternate" type="text/html" title="-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?" /><published>2021-03-29T00:00:00+02:00</published><updated>2021-03-29T00:00:00+02:00</updated><id>http://localhost:4000/2021/03/29/disable-deprecated-before-and-at</id><content type="html" xml:base="http://localhost:4000/2021/03/29/disable-deprecated-before-and-at.html">&lt;p&gt;-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00&lt;/p&gt;
 &lt;pre class=&quot;code&quot;&gt;
         0x054F00
 0x05    0x4F   0x00
 &lt;/pre&gt;
-
 &lt;p&gt;In terminal:&lt;/p&gt;
 &lt;pre class=&quot;code&quot;&gt;
 $ printf '%d %d %d\n' 0x05 0x4F 0x00
 5 79 0
 &lt;/pre&gt;
-
 &lt;p&gt;Using &lt;code&gt;std::cout&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&quot;code&quot;&gt;
-std::cout &amp;lt;&amp;lt; std::dec &amp;lt;&amp;lt; 0x05 &amp;lt;&amp;lt; &quot; &quot;
-                      &amp;lt;&amp;lt; 0x4F &amp;lt;&amp;lt; &quot; &quot;
-                      &amp;lt;&amp;lt; 0x00 &amp;lt;&amp;lt; std::endl;
+std::cout &lt;&lt; std::dec &lt;&lt; 0x05 &lt;&lt; &quot; &quot;
+                      &lt;&lt; 0x4F &lt;&lt; &quot; &quot;
+                      &lt;&lt; 0x00 &lt;&lt; std::endl;
 
 Outputs:
 5 79 0
 &lt;/pre&gt;
-
 &lt;p&gt;And:&lt;/p&gt;
 &lt;pre class=&quot;code&quot;&gt;
-std::cout &amp;lt;&amp;lt; std::hex &amp;lt;&amp;lt; QT_VERSION_CHECK(5, 79, 0) &amp;lt;&amp;lt;  std::endl;
+std::cout &lt;&lt; std::hex &lt;&lt; QT_VERSION_CHECK(5, 79, 0) &lt;&lt;  std::endl;
 
 Outputs:
 54f00
 &lt;/pre&gt;
-
 &lt;pre class=&quot;code&quot;&gt;
                    54f00
 Hexacdecimal: 54    4f   00
 Decimal:      5     79   0
 &lt;/pre&gt;
-
 &lt;p&gt;I hope you understand now.&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 &lt;hr /&gt;
-
-&lt;p&gt;&lt;b&gt;Side-note:&lt;/b&gt; I would like to thank Ilya Bizyaev, who took the time to file an issue which resulted in fixing the config files of my blog, so that links created to my blog on https://planet.kde.org actually work.&lt;/p&gt;
-
+&lt;b&gt;Side-note:&lt;/b&gt; I would like to thank Ilya Bizyaev, who took the time to file an issue which resulted in fixing the config files of my blog, so that links created to my blog on https://planet.kde.org actually work.
 &lt;p&gt;This is very good because it actually has two results, a) I fixed the config and b) it gave me proof that someone actually read a post from this blog.&lt;/p&gt;
-
-&lt;p&gt;My main goal when I created this blog was to share info, so even if no one reads a new post right after I create one, it could help someone doing an online search some years from now (including myself, since I also think of this blog as my little personal wiki, something like this great all-things-about-BASH wiki https://mywiki.wooledge.org , but much smaller (and not as useful, yet…. ?) :)&lt;/p&gt;</content><author><name>Ahmad Samir</name></author><summary type="html">-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00</summary></entry><entry><title type="html">If a workaround “works” for a long time, is it still a workaround?</title><link href="http://localhost:4000/2021/03/20/old-workaround.html" rel="alternate" type="text/html" title="If a workaround “works” for a long time, is it still a workaround?" /><published>2021-03-20T00:00:00+02:00</published><updated>2021-03-20T00:00:00+02:00</updated><id>http://localhost:4000/2021/03/20/old-workaround</id><content type="html" xml:base="http://localhost:4000/2021/03/20/old-workaround.html">&lt;p&gt;I remember back during the KDE3 to KDE4 transition, one feature was broken (or removed then brought back? it’s been so long I don’t recall exactly), and that is, double clicking the window menu button in the title bar (usually that button is the icon of the application to which that window belongs) would close the window. I was accustomed to using that functionality, both when I used Windows and after I switched to Linux, and it was a bit annoying to see that it suddenly didn’t work any more…&lt;/p&gt;
-
-&lt;p&gt;So, to workaround that issue, I ended up moving the close button (yes, you can edit those in the KDE desktop (now Plasma) settings, from the “Window Decorations” KCM) from the far right, where it resides by default, to the far left on the title bar. And I’ve been using that ever since.&lt;/p&gt;
-
+&lt;p&gt;My main goal when I created this blog was to share info, so even if no one reads a new post right after I create one, it could help someone doing an online search some years from now (including myself, since I also think of this blog as my little personal wiki, something like this great all-things-about-BASH wiki https://mywiki.wooledge.org , but much smaller (and not as useful, yet.... ?) :)&lt;/p&gt;</content><author><name>Ahmad Samir</name></author><summary type="html">-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00</summary></entry><entry><title type="html">If a workaround “works” for a long time, is it still a workaround?</title><link href="http://localhost:4000/2021/03/20/old-workaround.html" rel="alternate" type="text/html" title="If a workaround “works” for a long time, is it still a workaround?" /><published>2021-03-20T00:00:00+02:00</published><updated>2021-03-20T00:00:00+02:00</updated><id>http://localhost:4000/2021/03/20/old-workaround</id><content type="html" xml:base="http://localhost:4000/2021/03/20/old-workaround.html">&lt;p&gt;I remember back during the KDE3 to KDE4 transition, one feature was broken (or removed then brought back? it's been so long I don't recall exactly), and that is, double clicking the window menu button in the title bar (usually that button is the icon of the application to which that window belongs) would close the window. I was accustomed to using that functionality, both when I used Windows and after I switched to Linux, and it was a bit annoying to see that it suddenly didn't work any more...&lt;/p&gt;
+&lt;p&gt;So, to workaround that issue, I ended up moving the close button (yes, you can edit those in the KDE desktop (now Plasma) settings, from the &amp;quot;Window Decorations&amp;quot; KCM) from the far right, where it resides by default, to the far left on the title bar. And I've been using that ever since.&lt;/p&gt;
 &lt;p&gt;Even when I ran GNOME, I used that desktop for a while, I found that you can edit the buttons on the title bar there too, and I moved the close button the same way.&lt;/p&gt;
-
-&lt;p&gt;So, to answer my own question, if a workaround &lt;i&gt;works&lt;/i&gt; for 10+ years, it ceases to be a workaround and becomes the normal way of doing things (“work” without around?).&lt;/p&gt;
-
-&lt;p&gt;A bonus point, is that I can close a window with one click, instead of having to double click on the window menu button (I think the feature was brought back as an option in the “Window Decorations” KCM, “Close windows by double clicking the menu button”, but I don’t need it any more :)).&lt;/p&gt;</content><author><name>Ahmad Samir</name></author><summary type="html">I remember back during the KDE3 to KDE4 transition, one feature was broken (or removed then brought back? it’s been so long I don’t recall exactly), and that is, double clicking the window menu button in the title bar (usually that button is the icon of the application to which that window belongs) would close the window. I was accustomed to using that functionality, both when I used Windows and after I switched to Linux, and it was a bit annoying to see that it suddenly didn’t work any more…</summary></entry><entry><title type="html">NumPad Rebooted</title><link href="http://localhost:4000/2020/10/13/numlock-rebooted.html" rel="alternate" type="text/html" title="NumPad Rebooted" /><published>2020-10-13T00:00:00+02:00</published><updated>2020-10-13T00:00:00+02:00</updated><id>http://localhost:4000/2020/10/13/numlock-rebooted</id><content type="html" xml:base="http://localhost:4000/2020/10/13/numlock-rebooted.html">&lt;p&gt;If you use the PageUp key a lot (e.g. accessing shell history) and instead of hitting PageUp you hit NumLock? and then it happens several times? the solution for me was to remap the NumLock key to become another PageUp.&lt;/p&gt;
-
+&lt;p&gt;So, to answer my own question, if a workaround &lt;i&gt;works&lt;/i&gt; for 10+ years, it ceases to be a workaround and becomes the normal way of doing things (&amp;quot;work&amp;quot; without around?).&lt;/p&gt;
+&lt;p&gt;A bonus point, is that I can close a window with one click, instead of having to double click on the window menu button (I think the feature was brought back as an option in the &amp;quot;Window Decorations&amp;quot; KCM, &amp;quot;Close windows by double clicking the menu button&amp;quot;, but I don't need it any more :)).&lt;/p&gt;</content><author><name>Ahmad Samir</name></author><summary type="html">I remember back during the KDE3 to KDE4 transition, one feature was broken (or removed then brought back? it's been so long I don't recall exactly), and that is, double clicking the window menu button in the title bar (usually that button is the icon of the application to which that window belongs) would close the window. I was accustomed to using that functionality, both when I used Windows and after I switched to Linux, and it was a bit annoying to see that it suddenly didn't work any more...</summary></entry><entry><title type="html">NumPad Rebooted</title><link href="http://localhost:4000/2020/10/13/numlock-rebooted.html" rel="alternate" type="text/html" title="NumPad Rebooted" /><published>2020-10-13T00:00:00+02:00</published><updated>2020-10-13T00:00:00+02:00</updated><id>http://localhost:4000/2020/10/13/numlock-rebooted</id><content type="html" xml:base="http://localhost:4000/2020/10/13/numlock-rebooted.html">&lt;p&gt;If you use the PageUp key a lot (e.g. accessing shell history) and instead of hitting PageUp you hit NumLock? and then it happens several times? the solution for me was to remap the NumLock key to become another PageUp.&lt;/p&gt;
 &lt;p&gt;This is for systems using Udev (which is now part of systemd), and a USB or PS/2 keyboard; I am not sure this is feasible for laptops, since as far as I know, on a laptop keyboard switching the Numpad on/off can be useful, gives you more keys on the already cramped keyboard.&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;First you need to find the “keycode” for the Numlock key; install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;evtest&lt;/code&gt;, then run it as root from terminal&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Select the device for your keyboard from the list; note down the device number (e.g. /dev/input/event&lt;strong&gt;8&lt;/strong&gt;); this may need a bit of trial and error, usually there are multiple “events” for the same hardware device, e.g. one for handling the regular keyboard keys (A, B, C, Space bar … etc) and another for handling the multimedia keys on the same keyboard.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Once you select a device, some info about the keyboard hardware will be printed, on my system I see:&lt;/p&gt;
-  &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;First you need to find the &amp;quot;keycode&amp;quot; for the Numlock key; install &lt;code&gt;evtest&lt;/code&gt;, then run it as root from terminal&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select the device for your keyboard from the list; note down the device number (e.g. /dev/input/event&lt;strong&gt;8&lt;/strong&gt;); this may need a bit of trial and error, usually there are multiple &amp;quot;events&amp;quot; for the same hardware device, e.g. one for handling the regular keyboard keys (A, B, C, Space bar ... etc) and another for handling the multimedia keys on the same keyboard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once you select a device, some info about the keyboard hardware will be printed, on my system I see:&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&quot;code&quot;&gt;
 Input driver version is 1.0.1
 Input device ID: bus 0x3 vendor 0xd62 product 0xd93f version 0x111
 Input device name: &quot;      USB Keyboard&quot;
 &lt;/pre&gt;
-&lt;p&gt;note down the “vendor” (0xd62) and “product” (0xd93f)&lt;/p&gt;
-
+&lt;p&gt;note down the &amp;quot;vendor&amp;quot; (0xd62) and &amp;quot;product&amp;quot; (0xd93f)&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Now, in the terminal, every time you press a key you’ll see some info about that key, pressing Numlock I see:&lt;/li&gt;
+&lt;li&gt;Now, in the terminal, every time you press a key you'll see some info about that key, pressing Numlock I see:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&quot;code&quot;&gt;
 Event: time 1602580599.011787, -------------- SYN_REPORT ------------
@@ -85,22 +69,17 @@ Event: time 1602580600.683796, type 4 (EV_MSC), code 4 (MSC_SCAN), value 70053
 Event: time 1602580600.683796, type 1 (EV_KEY), code 104 (KEY_PAGEUP), value 0
 Event: time 1602580600.683796, -------------- SYN_REPORT ------------
 &lt;/pre&gt;
-
-&lt;p&gt;the interesting part in the output is &lt;em&gt;value&lt;/em&gt;, in my case it’s &lt;strong&gt;70053&lt;/strong&gt;.&lt;/p&gt;
-
+&lt;p&gt;the interesting part in the output is &lt;em&gt;value&lt;/em&gt;, in my case it's &lt;strong&gt;70053&lt;/strong&gt;.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Next create this directory: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/udev/hwdb.d/&lt;/code&gt; (/etc/udev/ should already be there). Inside that directory create a text file e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo.hwdb&lt;/code&gt; (the extension has to be &lt;i&gt;.hwdb&lt;/i&gt;), and open it in a text editor&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The first line in that file, should be something like:&lt;/p&gt;
-  &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Next create this directory: &lt;code&gt;/etc/udev/hwdb.d/&lt;/code&gt; (/etc/udev/ should already be there). Inside that directory create a text file e.g. &lt;code&gt;foo.hwdb&lt;/code&gt; (the extension has to be &lt;i&gt;.hwdb&lt;/i&gt;), and open it in a text editor&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The first line in that file, should be something like:&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;code class=&quot;code&quot;&gt;evdev:input:b*v0D62pD93F*&lt;/code&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;code class=&quot;code&quot;&gt;evdev:input:b&lt;em&gt;v0D62pD93F&lt;/em&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;I constructed that line from the &lt;i&gt;vendor&lt;/i&gt; and &lt;i&gt;product&lt;/i&gt;, respectively (we noted them down earlier). From /usr/lib/udev/hwdb.d/60-keyboard.hwdb:&lt;/p&gt;
-
 &lt;pre&gt;
     #  - Generic input devices match:
     #      evdev:input:bZZZZvYYYYpXXXXeWWWW-VVVV
@@ -111,52 +90,39 @@ Event: time 1602580600.683796, -------------- SYN_REPORT ------------
     #    The vendor, product and version ID for a device node &quot;eventX&quot; is listed
     #    in /sys/class/input/eventX/device/id.
 &lt;/pre&gt;
-
-&lt;p&gt;The parts we’re interested in are &lt;em&gt;YYYY&lt;/em&gt; and &lt;em&gt;XXXX&lt;/em&gt;, i.e. the &lt;em&gt;vendor&lt;/em&gt; and &lt;em&gt;product&lt;/em&gt;; I set the rest of those hex digits to “*”, since for example, it doesn’t matter which bus-id is being used.&lt;/p&gt;
-
+&lt;p&gt;The parts we're interested in are &lt;em&gt;YYYY&lt;/em&gt; and &lt;em&gt;XXXX&lt;/em&gt;, i.e. the &lt;em&gt;vendor&lt;/em&gt; and &lt;em&gt;product&lt;/em&gt;; I set the rest of those hex digits to &amp;quot;*&amp;quot;, since for example, it doesn't matter which bus-id is being used.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;The second line:&lt;/li&gt;
+&lt;li&gt;The second line:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&quot;code&quot;&gt;
  KEYBOARD_KEY_70053=pageup    # Remap NumLock to PageUp
-&lt;/pre&gt;
-&lt;p&gt;the part after # is a comment&lt;/p&gt;
-
+&lt;/pre&gt; the part after # is a comment
 &lt;div class=&quot;note&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This line starts with one blank space, i.e. it's &quot; KEYBOARD_KEY_70053=pageup&quot;, if you remove that space it won't work, it's iffy about syntax (it was the last time I tried anyway, which was quite a while ago); again see /usr/lib/udev/hwdb.d/60-keyboard.hwdb for examples.
 &lt;/div&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;Save the file, then as root, update the hwdb:&lt;/li&gt;
+&lt;li&gt;Save the file, then as root, update the hwdb:&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;&lt;code class=&quot;code&quot;&gt;systemd-hwdb update&lt;/code&gt;&lt;/p&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;To “apply” the changes, again as root:&lt;/li&gt;
+&lt;li&gt;To &amp;quot;apply&amp;quot; the changes, again as root:&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;&lt;code class=&quot;code&quot;&gt;udevadm trigger /dev/input/eventX&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;replace &lt;em&gt;X&lt;/em&gt; with the device number you used previously. If this doesn’t work, remove/reinsert the usb cable/receiver from the machine.&lt;/p&gt;
-
+&lt;p&gt;replace &lt;em&gt;X&lt;/em&gt; with the device number you used previously. If this doesn't work, remove/reinsert the usb cable/receiver from the machine.&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Now try the Numlock key, pressing it should be the same as pressing PageUp.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;To revert this change, simply remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo.hwdb&lt;/code&gt; file and:&lt;/p&gt;
-  &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now try the Numlock key, pressing it should be the same as pressing PageUp.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To revert this change, simply remove the &lt;code&gt;foo.hwdb&lt;/code&gt; file and:&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;pre class=&quot;code&quot;&gt;
 systemd-hwdb update
 udevadm trigger /dev/input/eventX
 &lt;/pre&gt;
-&lt;p&gt;if the last command above doesn’t “apply” the changes remove/reinsert the usb cable/receiver from the machine.&lt;/p&gt;
-
+&lt;p&gt;if the last command above doesn't &amp;quot;apply&amp;quot; the changes remove/reinsert the usb cable/receiver from the machine.&lt;/p&gt;
 &lt;hr /&gt;
-
-&lt;p&gt;Of course now you have no way to toggle the Numpad :), so the next logical step is to remap the number keys on the Numpad to always be in number mode i.e. 1 on the Numpad always types 1, 2 on the Numpad always types 2 …etc, regardless of the state of NumLock. On my system I needed to use:&lt;/p&gt;
+&lt;p&gt;Of course now you have no way to toggle the Numpad :), so the next logical step is to remap the number keys on the Numpad to always be in number mode i.e. 1 on the Numpad always types 1, 2 on the Numpad always types 2 ...etc, regardless of the state of NumLock. On my system I needed to use:&lt;/p&gt;
 &lt;pre&gt;
  KEYBOARD_KEY_70062=0
  KEYBOARD_KEY_70059=1
@@ -176,9 +142,7 @@ udevadm trigger /dev/input/eventX
  KEYBOARD_KEY_70054=slash
 &lt;/pre&gt;
 &lt;p&gt;you simply repeat the above steps for each key.&lt;/p&gt;
-
-&lt;p&gt;One other issue that this fixes is booting and then trying to use the Numpad only to find NumLock isn’t “on”, this way it’s always “on” :)&lt;/p&gt;
-
+&lt;p&gt;One other issue that this fixes is booting and then trying to use the Numpad only to find NumLock isn't &amp;quot;on&amp;quot;, this way it's always &amp;quot;on&amp;quot; :)&lt;/p&gt;
 &lt;p&gt;I hope this mini-tutorial was useful.&lt;/p&gt;</content><author><name>Ahmad Samir</name></author><summary type="html">If you use the PageUp key a lot (e.g. accessing shell history) and instead of hitting PageUp you hit NumLock? and then it happens several times? the solution for me was to remap the NumLock key to become another PageUp.</summary></entry><entry><title type="html">Shell script to open files related to a git commit</title><link href="http://localhost:4000/2020/10/11/open-files-git-commit.html" rel="alternate" type="text/html" title="Shell script to open files related to a git commit" /><published>2020-10-11T00:00:00+02:00</published><updated>2020-10-11T00:00:00+02:00</updated><id>http://localhost:4000/2020/10/11/open-files-git-commit</id><content type="html" xml:base="http://localhost:4000/2020/10/11/open-files-git-commit.html">&lt;html&gt;
 &lt;body&gt;
   &lt;p&gt;This is a small shell script that I use to open all files related to a commit in git; I find it quite useful when I want to resume working on a local branch.&lt;/p&gt;
