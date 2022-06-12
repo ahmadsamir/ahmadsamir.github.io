@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title></title>
+  </head>
+  <body>
+    <header role="banner">
+      <div class="site-header">
+        <span style="float: left;"><a class="site-title" rel="author" href="./index.html">Open Source C++ developer's blog</a></span> <span style="float: right;"><a class="page-link" href="./about.html">About</a></span>
+      </div>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="main-content">
+          <h1>
+            NumPad Rebooted
+          </h1>
+          <p class="post-date">
+            13 Oct 2020
+          </p>
+          <p>
+            If you use the PageUp key a lot (e.g. accessing shell history) and instead of hitting PageUp you hit NumLock? and then it happens several times? the solution for me was to remap the NumLock key to become another PageUp.
+          </p>
+          <p>
+            This is for systems using Udev (which is now part of systemd), and a USB or PS/2 keyboard; I am not sure this is feasible for laptops, since as far as I know, on a laptop keyboard switching the Numpad on/off can be useful, gives you more keys on the already cramped keyboard.
+          </p>
+          <ul>
+            <li>
+              <p>
+                First you need to find the "keycode" for the Numlock key; install <code>evtest</code>, then run it as root from terminal
+              </p>
+            </li>
+            <li>
+              <p>
+                Select the device for your keyboard from the list; note down the device number (e.g. /dev/input/event<strong>8</strong>); this may need a bit of trial and error, usually there are multiple "events" for the same hardware device, e.g. one for handling the regular keyboard keys (A, B, C, Space bar ... etc) and another for handling the multimedia keys on the same keyboard.
+              </p>
+            </li>
+            <li>
+              <p>
+                Once you select a device, some info about the keyboard hardware will be printed, on my system I see:
+              </p>
+            </li>
+          </ul><!-- raw HTML omitted -->
+          <p>
+            note down the "vendor" (0xd62) and "product" (0xd93f)
+          </p>
+          <ul>
+            <li>Now, in the terminal, every time you press a key you'll see some info about that key, pressing Numlock I see:
+            </li>
+          </ul><!-- raw HTML omitted -->
+          <p>
+            the interesting part in the output is <em>value</em>, in my case it's <strong>70053</strong>.
+          </p>
+          <ul>
+            <li>
+              <p>
+                Next create this directory: <code>/etc/udev/hwdb.d/</code> (/etc/udev/ should already be there). Inside that directory create a text file e.g. <code>foo.hwdb</code> (the extension has to be <!-- raw HTML omitted -->.hwdb<!-- raw HTML omitted -->), and open it in a text editor
+              </p>
+            </li>
+            <li>
+              <p>
+                The first line in that file, should be something like:
+              </p>
+            </li>
+          </ul>
+          <p>
+            <!-- raw HTML omitted -->evdev:input:b<em>v0D62pD93F</em><!-- raw HTML omitted -->
+          </p>
+          <p>
+            I constructed that line from the <!-- raw HTML omitted -->vendor<!-- raw HTML omitted --> and <!-- raw HTML omitted -->product<!-- raw HTML omitted -->, respectively (we noted them down earlier). From /usr/lib/udev/hwdb.d/60-keyboard.hwdb:
+          </p><!-- raw HTML omitted -->
+          <p>
+            The parts we're interested in are <em>YYYY</em> and <em>XXXX</em>, i.e. the <em>vendor</em> and <em>product</em>; I set the rest of those hex digits to "*", since for example, it doesn't matter which bus-id is being used.
+          </p>
+          <ul>
+            <li>The second line:
+            </li>
+          </ul><!-- raw HTML omitted -->
+          <!-- raw HTML omitted -->
+          <ul>
+            <li>Save the file, then as root, update the hwdb:
+            </li>
+          </ul>
+          <p>
+            <!-- raw HTML omitted -->systemd-hwdb update<!-- raw HTML omitted -->
+          </p>
+          <ul>
+            <li>To "apply" the changes, again as root:
+            </li>
+          </ul>
+          <p>
+            <!-- raw HTML omitted -->udevadm trigger /dev/input/eventX<!-- raw HTML omitted -->
+          </p>
+          <p>
+            replace <em>X</em> with the device number you used previously. If this doesn't work, remove/reinsert the usb cable/receiver from the machine.
+          </p>
+          <ul>
+            <li>
+              <p>
+                Now try the Numlock key, pressing it should be the same as pressing PageUp.
+              </p>
+            </li>
+            <li>
+              <p>
+                To revert this change, simply remove the <code>foo.hwdb</code> file and:
+              </p>
+            </li>
+          </ul><!-- raw HTML omitted -->
+          <p>
+            if the last command above doesn't "apply" the changes remove/reinsert the usb cable/receiver from the machine.
+          </p>
+          <hr>
+          <p>
+            Of course now you have no way to toggle the Numpad :), so the next logical step is to remap the number keys on the Numpad to always be in number mode i.e. 1 on the Numpad always types 1, 2 on the Numpad always types 2 ...etc, regardless of the state of NumLock. On my system I needed to use:
+          </p><!-- raw HTML omitted -->
+          <p>
+            you simply repeat the above steps for each key.
+          </p>
+          <p>
+            One other issue that this fixes is booting and then trying to use the Numpad only to find NumLock isn't "on", this way it's always "on" :)
+          </p>
+          <p>
+            I hope this mini-tutorial was useful.
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>
+        <span style="float: left;"><a href="mailto:a.samirh78@gmail.com">Email</a></span> <span style="float: right;"><a href="./feed.xml">Subscribe</a></span>
+      </p>
+    </footer>
+  </body>
+</html>

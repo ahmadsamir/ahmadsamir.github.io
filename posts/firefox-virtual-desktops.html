@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title></title>
+  </head>
+  <body>
+    <header role="banner">
+      <div class="site-header">
+        <span style="float: left;"><a class="site-title" rel="author" href="./index.html">Open Source C++ developer's blog</a></span> <span style="float: right;"><a class="page-link" href="./about.html">About</a></span>
+      </div>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="main-content">
+          <h1>
+            Firefox and virtual desktops
+          </h1>
+          <p class="post-date">
+            30 Aug 2021
+          </p>
+          <p>
+            At some point Firefox started remebering which window was open on which desktop, which meant that if you're running KDE or GNOME ...etc and open several Firefox windows on different virtual desktops, when you restart Firefox, each window will be restored to the desktop it was open on. Apparently <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=890125">that started with Firefox 77</a>.
+          </p>
+          <p>
+            Which is nice... or not, depending on your use-case; so, the good news is that this is actually configurable via a pref <code>widget.disable-workspace-management</code> (you can open the config page in Firefox by going to <code>about:config</code>), that <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1628742">pref was introduced in Firefox 81</a>.
+          </p>
+          <p>
+            It took 1-2 restarts to see the changes, but it works.
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>
+        <span style="float: left;"><a href="mailto:a.samirh78@gmail.com">Email</a></span> <span style="float: right;"><a href="./feed.xml">Subscribe</a></span>
+      </p>
+    </footer>
+  </body>
+</html>
