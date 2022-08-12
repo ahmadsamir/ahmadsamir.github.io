@@ -1,55 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../styles.css">
-    <title></title>
-  </head>
-  <body>
-    <header role="banner">
-      <div class="site-header">
-        <span style="float: left;"><a class="site-title" rel="author" href="./index.html">Open Source C++ developer's blog</a></span> <span style="float: right;"><a class="page-link" href="./about.html">About</a></span>
-      </div>
-    </header>
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <div class="main-content">
-          <h1>
-            -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?
-          </h1>
-          <p class="post-date">
-            29 Mar 2021
-          </p>
-          <p>
-            -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00
-          </p><!-- raw HTML omitted -->
-          <p>
-            In terminal:
-          </p><!-- raw HTML omitted -->
-          <p>
-            Using <!-- raw HTML omitted -->std::cout<!-- raw HTML omitted -->:
-          </p><!-- raw HTML omitted -->
-          <p>
-            And:
-          </p><!-- raw HTML omitted -->
-          <!-- raw HTML omitted -->
-          <p>
-            I hope you understand now.
-          </p><!-- raw HTML omitted -->
-          <p>
-            This is very good because it actually has two results, a) I fixed the config and b) it gave me proof that someone actually read a post from this blog.
-          </p>
-          <p>
-            My main goal when I created this blog was to share info, so even if no one reads a new post right after I create one, it could help someone doing an online search some years from now (including myself, since I also think of this blog as my little personal wiki, something like this great all-things-about-BASH wiki https://mywiki.wooledge.org , but much smaller (and not as useful, yet.... ?) :)
-          </p>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <p>
-        <span style="float: left;"><a href="mailto:a.samirh78@gmail.com">Email</a></span> <span style="float: right;"><a href="./feed.xml">Subscribe</a></span>
-      </p>
-    </footer>
-  </body>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<title>-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?</title>
+</head>
+<body>
+<header role="banner">
+<div class="site-header">
+<span style="float: left;"><a class="site-title" rel="author" href="./index.html">Open Source C++ developer's blog</a></span> <span style="float: right;"><a class="page-link" href="./about.html">About</a></span>
+</div>
+</header>
+<h1>-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00 ?</h1>
+
+
+<p class="post-date">
+29 Mar 2021</p>
+
+<p>-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054F00
+</p>
+<pre class="code">
+0x054F00
+0x05    0x4F   0x00
+</pre>
+
+<p>
+In terminal:
+<pre class="code">
+$ printf '%d %d %d\n' 0x05 0x4F 0x00
+5 79 0
+</pre>
+</p>
+
+<p>
+Using <code>std::cout</code>:
+<pre class="code">
+std::cout << std::dec << 0x05 << " "
+                      << 0x4F << " "
+                      << 0x00 << std::endl;
+
+Outputs:
+5 79 0
+</pre>
+
+<p>
+And:
+<pre class="code">
+std::cout << std::hex << QT_VERSION_CHECK(5, 79, 0) <<  std::endl;
+
+Outputs:
+54f00
+</pre>
+
+<pre class="code">
+                   54f00
+Hexacdecimal: 54    4f   00
+Decimal:      5     79   0
+</pre>
+
+</p>
+
+<hr />
+<p>
+<b>Side-note:</b> I would like to thank Ilya Bizyaev, who took the time to file an issue which resulted in fixing the config files of my blog, so that links created to my blog on https://planet.kde.org actually work.
+</p>
+
+<p>
+This is very good because it actually has two results, a) I fixed the config and b) it gave me proof that someone actually read a post from this blog.
+</p>
+
+<p>
+My main goal when I created this blog was to share info, so even if no one reads a new post right after I create one, it could help someone doing an online search some years from now (including myself, since I also think of this blog as my little personal wiki, something like this great all-things-about-BASH wiki https://mywiki.wooledge.org , but much smaller (and not as useful, yet.... ?) :)
+</p>
+
+</div>
+</div>
+</main>
+
+<footer>
+<p>
+<span style="float: left;"><a href="mailto:a.samirh78@gmail.com">Email</a></span> <span style="float: right;"><a href="./feed.xml">Subscribe</a></span>
+</p>
+</footer>
+</body>
 </html>
