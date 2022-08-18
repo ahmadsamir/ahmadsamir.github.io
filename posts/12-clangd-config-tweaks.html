@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<title>Clangd config</title>
+</head>
+<body>
+<header role="banner">
+<div class="site-header">
+<span style="float: left;"><a class="site-title" rel="author" href="./index.html">Open Source C++ developer's blog</a></span> <span style="float: right;"><a class="page-link" href="./about.html">About</a></span>
+</div>
+</header>
+
+<h1>Clangd config</h1>
+
+<p class="post-date">2022-08-15</p>
+
+<p>Since <a href="https://kate-editor.org/post/2020/2020-01-01-kate-lsp-client-status/">Kate got LSP support</a> some time ago (thanks to all the developers who made/make this possible, it is a great addition), I've been using it a lot; as you'd expect with any tool, it has some default behaviours that you'd want to disable, and some non-default ones that you want to make use of. Below are some of the config tweaks I've collected over time.</p>
+
+<p>First, there are two ways to change the <a href="https://clangd.llvm.org/config.html">clangd config options</a>:
+<ul>
+<li>creating a <code>~/.config/clangd/config.yaml</code> text file, which will affect all projects</li>
+<li>creating a <code>.clangd</code> in a specific project directory</li>
+</ul>
+Note that clangd search for a <code>.clangd</code> file in the current dir and then its parent dir ...etc. So, you can have one .clangd file in the parent dir of all your KDE Frameworks checkouts and it'll affect all of them.
+</p>
+
+<p>Now the config options:
+<ul>
+<li>Mark unused includes, this seems to only work with .h headers includes, but not with ForwardingHeaders (e.g. <code>#include &lt;QString&gt;</code> or <code>#include &lt;KIO/Stat&gt;</code>):
+<pre>
+Diagnostics:
+  UnusedIncludes: Strict
+</pre>
+So while it doesn't work a 100% for KDE code which uses ForwardingHeaders a lot, it is still useful to have, since you can remove some unused includes as you go along. Of course be careful as it could mark something as "unused" while it is actually needed for a different code path, e.g. only needed on FreeBSD or Windows.
+</li>
+
+<li>Disable/suppress showing "Diagnostics" for system headers (if you're a developer for system libraries, you'll have those libraries source code open in your editor, right? if I have a KDE Framework code open in my editor, I want to see issues about that code at his moment, not the system headers, please):
+<pre>
+---
+
+If:
+  PathMatch: /usr/include/.*
+Diagnostics:
+  Suppress: "*"
+</pre>
+</li>
+If I understand correctly, the <em>---</em> is used to separate sections in the config file, so that means I only want to suppress Diagnostics for this PathMatch not everywhere else.
+
+<li>Add/Remove compile flags that are passed to the compiler clangd uses (by default it uses clang, obviously):
+<pre>
+CompileFlags:
+    Add: [-Wno-gnu-zero-variadic-macro-arguments]
+    Remove: [-fdiagnostics-urls=always]
+</pre>
+For example I usually compile with gcc, and I add the <a href="https://gcc.gnu.org/onlinedocs/gcc-12.1.0/gcc/Diagnostic-Message-Formatting-Options.html"><code>-fdiagnostics-urls=always</code></a> flag, but clang knows nothing about it and keeps complaining in e.g. the LSP diagnostics tab in Kate, so this is one way of removing that noisy warning.
+
+For <code>-Wno-gnu-zero-variadic-macro-arguments</code> see this <a href="https://ahmadsamir.github.io/posts/gcc-clang-variadic-macros-warnings.html">post</a>.
+</li>
+</ul>
+</p>
+
+<footer>
+<p>
+<span style="float: left;"><a href="mailto:a.samirh78@gmail.com">Email</a></span>
+<span style="float: right;"><a href="./feed.xml">Subscribe</a></span>
+</p>
+</footer>
+</body>
+</html>
