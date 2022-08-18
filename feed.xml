@@ -4,7 +4,7 @@
   <title type="html">Open Source C++ developer’s journal</title>
   <!--<subtitle>C++ developer's journal</subtitle>-->
   <updated>2021-11-18T15:00:23+02:00</updated>
-  <id>http://localhost:4000/feed.xml</id>
+  <id>https://ahmadsamir.github.io/feed.xml</id>
   <author><name>Ahmad Samir</name></author>
   <link href="https://ahmadsamir.github.io/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://ahmadsamir.github.io/" rel="alternate" type="text/html" />
@@ -417,7 +417,7 @@ udevadm trigger /dev/input/eventX
 <updated>2022-08-18T12:00:00+02:00</updated>
 <published>2020-08-18T12:00:00+02:00</published>
 <author><name>Ahmad Samir</name></author>
-<content type="xhtml" xml:base="https://ahmadsamir.github.io/posts/12-clangd-config-tweaks.html">
+<content type="xhtml" xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:base="https://ahmadsamir.github.io/posts/12-clangd-config-tweaks.html">
 <xhtml:div>
 
 <h1>Clangd config</h1>
