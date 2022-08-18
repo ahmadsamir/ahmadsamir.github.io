@@ -415,7 +415,7 @@ udevadm trigger /dev/input/eventX
 <link href="https://ahmadsamir.github.io/posts/12-clangd-config-tweaks.html" rel="alternate" type="text/html" title="Clangd config" />
 <id>12-clangd-config-tweaks.html</id>
 <updated>2022-08-18T12:00:00+02:00</updated>
-<published>2020-10-13T12:00:00+02:00</published>
+<published>2020-08-18T12:00:00+02:00</published>
 <author><name>Ahmad Samir</name></author>
 <content type="xhtml" xml:base="https://ahmadsamir.github.io/posts/12-clangd-config-tweaks.html">
 <xhtml:div>
