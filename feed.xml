@@ -414,11 +414,10 @@ udevadm trigger /dev/input/eventX
 <title type="html">Clangd config</title>
 <link href="https://ahmadsamir.github.io/posts/12-clangd-config-tweaks.html" rel="alternate" type="text/html" title="Clangd config" />
 <id>12-clangd-config-tweaks.html</id>
-<updated>2022-08-18T12:00:00+02:00</updated>
-<published>2020-08-18T12:00:00+02:00</published>
+<updated>2022-08-19T15:00:00+02:00</updated>
+<published>2022-08-19T15:00:00+02:00</published>
 <author><name>Ahmad Samir</name></author>
-<content type="xhtml" xmlns:xhtml="http://www.w3.org/1999/xhtml" xml:base="https://ahmadsamir.github.io/posts/12-clangd-config-tweaks.html">
-<xhtml:div>
+<content type="html" xml:base="https://ahmadsamir.github.io/posts/12-clangd-config-tweaks.html">
 
 <h1>Clangd config</h1>
 
@@ -468,9 +467,8 @@ For <code>-Wno-gnu-zero-variadic-macro-arguments</code> see this <a href="https:
 </li>
 </ul>
 </p>
-</xhtml:div>
 </content>
-<summary type="xhtml">
+<summary type="html">
 Clangd config tweaks
 </summary>
 </entry>
