@@ -50,3 +50,10 @@ code {
     white-space: pre-wrap;
 
 }
+
+.terminal {
+    background-color: #00171d;
+    color: #b2b2b2;
+    padding: 5px;
+    border-radius: 10px;
+}
