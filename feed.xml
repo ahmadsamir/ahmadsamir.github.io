@@ -472,4 +472,95 @@ For <code>-Wno-gnu-zero-variadic-macro-arguments</code> see this <a href="https:
 Clangd config tweaks
 </summary>
 </entry>
+
+
+<entry>
+<title type="html">Git</title>
+<link href="https://ahmadsamir.github.io/posts/13-git.html" rel="alternate" type="text/html" title="Git" />
+<id>13-Git.html</id>
+<updated>2022-10-04T15:30:00+02:00</updated>
+<published>2022-10-04T15:30:00+02:00</published>
+<author><name>Ahmad Samir</name></author>
+<content type="xhtml" xml:base="https://ahmadsamir.github.io/posts/13-git.html">
+
+<h1>Git</h1>
+
+<p class="post-date">2022-10-04</p>
+
+<p>Git is one of those tools that I have been using for the past 4-5 years on a daily basis, very very good tool. Below I share some git commands and aliases ...etc, that I've collected over the years.</p>
+
+<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases"><b>Aliases</b>:</a></p>
+
+<ul>
+<li><b>l = log</b><br/> how many times do you type <code>git log</code>?</li>
+
+<li><b>logs = log --pickaxe-all -p -S</b><br/>
+This is useful when searching in a repo's commit log for a line of code (verbatim), it shows all the commits where a string of text appears; the <code>-p</code> option makes it show the diff along with the commit message, very good for searching in e.g. less (or whatever pager you use); for what <b>--pickaxe-all</b> does, have a look at the <a href="https://git-scm.com/docs/git-log">documentation</a>
+</li>
+
+<li><b>logg = log --pickaxe-all -p -G</b><br/>
+The same as the previous one but uses "-G" (instead of "-S"), which takes a regular expression</li>
+
+<li><b>rei = rebase --interactive</b></li>
+<li><b>rec = rebase --continue</b></li>
+
+<li><b>cot = checkout -t origin/master -b</b><br/>
+Creates a new branch, that tracks the remote origin/master branch, and switches to that new branch, for example <code>git cot blahbleh</code>
+</li>
+
+<li><b>cotqt = checkout -t origin/dev -b</b><br/>
+The same as the previous one but for Qt repos, they use "dev" instead of "master"...
+</li>
+
+<li><b>one-long = log --pretty=format:\"%Cblue%H    %&gt;(20,trunc)%Cgreen%an%Creset %Cred%s%Creset\"</b><br/>
+Shows git log of a repo, one line per commit:<br/>
+<span class="terminal">
+<span style="color:#4980ff">fd2a2f2806064e71c4e64c80a361bc4b2ef64bd2 &#160;&#160;&#160;</span><span style="color:#18b218">John Foo &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="color:#b2b2b2">&#160;</span><span style="color:#ff7361">De-duplicate some code</span>
+</span><br/>
+See the documentation for more info.
+</li>
+
+<li><b>lbr = log -p origin/master..</b><br/>
+Shows all the commits in the current branch (i.e. ones at the top that aren't in master yet); again "-p" makes it show the diff along with the commit message, remove it if you want to see commit messages only
+</li>
+
+<li><b>g =!git gui &amp; disown</b><br/> "&amp; disown", at least with BASH, means send it to the background, and detach it from this terminal, i.e. the GUI app won't be closed when you close the terminal
+</li>
+</ul>
+
+<p><b>Custom Git Commands:</b></p>
+
+<p>Some other commands are too big for an alias, so it's easier to use a git script, basically create a shell script somewhere in your PATH, make it executable and name it git-<i>command_name</i> (where <i>command_name</i> is the name of the command you want use e.g. git-history, you can then use <code>git history</code> like any other git command).</p>
+
+<ul>
+<li>git-history:
+<pre>
+#!/usr/bin/bash
+git reflog "$@" | grep "checkout:" | perl -p -e 's@.+checkout: moving from ([^ ]+).+@$1@' | grep -v master | uniq | head -n 20
+</pre>
+Prints a list of the branch names that you have checked out / switched to/from, in chronological order; useful when you have many local branches and can't remember the name of one of the recent ones you've been working on. (I omit "master", because I don't have trouble remembering the name of that one).
+</li>
+
+<li>git-dadd:
+<pre>
+#!/usr/bin/bash
+git diff --name-only --diff-filter=U | xargs git add
+</pre>
+When doing an interactive rebase and after resolving conflicts, you have to `git add` the files that had conflicts, this command does exactly that.
+</li>
+
+<li>git-copy:
+<pre>
+#!/usr/bin/bash
+newName=$(git branch --show-current)-2
+git branch --copy $newName
+</pre>
+Creates a copy of the current branch, named <i>current-branch-name</i>-2, basically creating a backup copy in case whatever changes I am about to attempt doing don't work out.
+</li>
+</ul>
+
+</content>
+<summary type="xhtml">Git</summary>
+</entry>
+
 </feed>
